@@ -4,10 +4,9 @@ let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
 
-
 function flipCard() {
-    if(lockBoard) return;
-    if(this === firstCard) return;
+    if (lockBoard) return;
+    if (this === firstCard) return;
 
     this.classList.add("flip");
 
@@ -45,18 +44,16 @@ function unFlipCards() {
 
 function resetBoard() {
     hasFlippedCard = false;
-    lockBoard= false;
+    lockBoard = false;
     firstCard = null;
     secondCard = null;
 }
 
-(function shuffle(){
+(function shuffle() {
     cards.forEach(card => {
         let randomPos = Math.floor((Math.random() * 12));
         card.style.order = randomPos;
-    })
+    });
 }())
-
-
 
 cards.forEach(card => card.addEventListener("click", flipCard));
